@@ -1,5 +1,16 @@
 #!/usr/bin/env python
 
+# If called without a number it gives one weapon.
+#   random_weapons.py 
+#   missile:1
+
+# If called with a number it gives a sorted string.
+#   random_weapons.py 6
+#   beam_laser:1, missile:1, particle:2, sand:2
+
+# TODO: Error checking.
+#       Maybe number of weapons in a turrent?
+
 import random
 import sys
 
