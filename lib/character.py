@@ -13,16 +13,20 @@ class Character(object):
     self.career = my_data.get('career', self.set_career())
 
   def display(self):
-    print("%-10s %s [%s] Age: %d " % 
+    print("%-15s %s [%s] Age: %d " % 
       (self.name, self.show_upp(self.upp), self.gender, self.age))
-    print("%s (%d terms)" % (self.career, self.terms))
+    print("%-8s (%d terms)" % (self.career, self.terms))
 
   def make_name(self, gender):
     if gender == 'F':
-      names = ['Vega', 'Gabbie', 'Giselle', 'Lanny', 'Ilana', 'Alba', 'Irene']
+      f_names = ['Vega', 'Gabbie', 'Giselle', 'Lanny', 'Ilana', 'Alba', 'Irene']
     else:
-      names = ['Marco', 'Ian', 'Akil', 'Alan', 'Wilbur']
-    return random.choice(names)
+      f_names = ['Marco', 'Ian', 'Akil', 'Alan', 'Wilbur']
+    f_name = random.choice(f_names)
+    l_names = ['Domici', 'Stranger', 'Smith', 'Jones', 'Patterson']
+    l_name = random.choice(l_names)
+    return f_name + " " + l_name
+    
 
   def roll_upp(self):
     return [random.randint(1,6) + random.randint(1,6) for _ in range(6)]

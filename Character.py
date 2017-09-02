@@ -1,17 +1,17 @@
+import getopt
+
 import sys
 sys.path.append("lib")
 from character import Character
 
-x_dict = {'career' : 'Navy'}
-x = Character(x_dict)
+data = {}
+if len(sys.argv) > 1:
+  opts, args = getopt.getopt(sys.argv[1:], 'c:t:')
+  for o, a in opts:
+    if o == '-c':
+      data['career'] = a
+    elif o == '-t':
+      data['terms'] = int(a)
+      
+x = Character(data)
 x.display()
-print('')
-
-y_dict = {'career' : 'Merchant'}
-y = Character(y_dict)
-y.display()
-print('')
-
-z = Character()
-z.display()
-print('')
