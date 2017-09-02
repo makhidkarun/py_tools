@@ -17,6 +17,16 @@ class Character(object):
       (self.name, self.show_upp(self.upp), self.gender, self.age))
     print("%-8s (%d terms)" % (self.career, self.terms))
 
+  def display_string(self):
+    character_array = [self.name, self.show_upp(self.upp), self.gender, 
+    self.age, self.career, self.terms]
+    c_string = self.name + (" " * (20 - len(self.name)))
+    c_string = c_string + self.show_upp(self.upp) + " "
+    c_string = c_string + '[' + self.gender +']' + " Age: " + str(self.age)
+    c_string = c_string + "\n  " + self.career 
+    c_string = c_string + " (" + str(self.terms) + " terms)" 
+    return c_string
+  
   def make_name(self, gender):
     if gender == 'F':
       f_names = ['Vega', 'Gabbie', 'Giselle', 'Lanny', 'Ilana', 'Alba', 'Irene']
