@@ -59,9 +59,11 @@ def create_squad():
 
 def create_fireteam():
   create_leader("CPL")
+  print("")
   for s in range(3):
     pvt_data = {'terms':1, 'career': get_career()}
     pvt = Character(pvt_data)
     print("PVT " + pvt.display_string())
+    print("")
      
   
