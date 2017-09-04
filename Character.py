@@ -13,5 +13,6 @@ if len(sys.argv) > 1:
     elif o == '-t':
       data['terms'] = int(a)
       
-char = Character(data)
+char = Character()
+char.generate(data)
 char.display()
