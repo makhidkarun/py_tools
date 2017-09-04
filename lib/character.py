@@ -1,4 +1,7 @@
 import random
+import sys
+sys.path.append("lib")
+from character_tools import *
 
 class Character(object):
 
@@ -7,7 +10,8 @@ class Character(object):
       my_data = {}
     self.gender = my_data.get('gender', self.set_gender())
     self.name = my_data.get('name', self.make_name(self.gender))
-    self.upp  = my_data.get('upp', self.roll_upp())
+    #self.upp  = my_data.get('upp', self.roll_upp())
+    self.upp  = my_data.get('upp', roll_upp())
     self.terms  = my_data.get('terms', self.set_terms())
     self.age    = my_data.get('age', self.set_age(self.terms))
     self.career = my_data.get('career', self.set_career())
@@ -51,8 +55,8 @@ class Character(object):
     return f_name + " " + l_name
     
 
-  def roll_upp(self):
-    return [random.randint(1,6) + random.randint(1,6) for _ in range(6)]
+  #def roll_upp(self):
+  #  return [random.randint(1,6) + random.randint(1,6) for _ in range(6)]
 
   def set_age(self, terms):
     return 18 + (terms * 4) + random.randint(0,3)
