@@ -88,7 +88,6 @@ class Character(object):
     () -> int
     Returns a random integer between 1 and 6.
 
-    >>> from character import Character
     >>> char = Character()
     >>> 0 < char.set_terms() <=6
     True
