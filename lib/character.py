@@ -84,7 +84,24 @@ class Character(object):
       
   
   def set_terms(self):
+    """
+    () -> int
+    Returns a random integer between 1 and 6.
+
+    >>> from character import Character
+    >>> char = Character()
+    >>> 0 < char.set_terms() <=6
+    True
+    >>> 6 < char.set_terms() 
+    False
+    """
+
     return random.randint(1,6)
 
   def show_upp(self, upp):
     return ''.join('%X' % u for u in upp)
+
+if __name__ == '__main__':
+  import doctest
+  doctest.testmod()
+
