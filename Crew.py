@@ -10,9 +10,9 @@ if len(sys.argv) > 1:
   for o, a in opts:
     if o in ('-m', '--mercenary'):
       from mercenary import create_unit
-      career_options = ['Army', 'Marines']
       size = a
       create_unit(size)
     elif o == '-s':
-      print("ship crew not implemented yet.")
+      from ship_crew import create_crew
+      create_crew(int(a))
         

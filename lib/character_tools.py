@@ -35,7 +35,7 @@ def set_skills(career, terms):
   skills = {}
   if career in ['Army', 'Marines']:
     skill_list = ['GunCbt', 'VaccSuit', 'Leadership', 'Vehicle']
-  elif career in ['Merchant', 'Navy', 'Scout']:
+  elif career in ['Merchants', 'Navy', 'Scouts']:
     skill_list = ['Navigation', 'Pilot', 'Engineering', 'Computer']
   else:
     skill_list = ['Blade', 'GunCbt', 'Admin', 'Streetwise']
@@ -49,4 +49,9 @@ def set_skills(career, terms):
 
   return skills
     
-
+def add_skill(char, skill):
+  if skill in char.skills:
+    char.skills[skill] += 1
+  else:
+    char.skills[skill] = 1
+ 
