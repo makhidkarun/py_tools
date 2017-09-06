@@ -30,3 +30,5 @@ def create_crewman(role):
   character_tools.add_skill(crew, skill)
 
   print(role + " " + crew.display_string())
+  print("")
+

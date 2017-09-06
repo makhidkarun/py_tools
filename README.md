@@ -38,4 +38,23 @@ Size options are (without quotes) "fireteam", "squad", "platoon".
     PVT Lanny Jones         94BC6B [F] Age: 22
     Marines (1 terms)
     Leadership-1 Vehicle-1
- 
+
+# Creating a ship crew:
+
+    python Crew.py -s 600
+
+    Pilot Ilana Patterson     55C6AB [F] Age: 39
+    Navy (5 terms)
+    Computer-3 Engineering-1 Navigation-3 Pilot-4 
+
+    Navg Akil Jones          494654 [M] Age: 27
+    Navy (2 terms)
+    Computer-2 Navgigation-1 Navigation-1 Pilot-1 
+
+    Eng Akil Smith          A737B5 [M] Age: 33
+    Navy (3 terms)
+    Engineering-5 Navigation-1 Pilot-1 
+
+    Eng Marco Stranger      4A6246 [M] Age: 31
+    Scouts (3 terms)
+    Computer-3 Engineering-2 Navigation-1 Pilot-1  
