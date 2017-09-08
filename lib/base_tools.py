@@ -44,13 +44,25 @@ def list_from_file(file):
       items.append(line)
   return items
 
-
-
-def random_from_list(list):
+def random_from_list(l):
   """
   Returns a random item from the list.
   """
-  return random.choice(list)
+  return random.choice(l)
+
+def modify_list(l, index, modifier = 1):
+  """
+  Modifies existing list with the modified value at index.
+  """
+  l[index] = l[index] + modifier
+  
+def validate_hex_int(num):
+  """
+  Returns an int between 1 and 15 inclusive.
+  """
+  num = min(15, num)
+  num = max(1, num)
+  return int(num)
 
 if __name__ == '__main__':
   list_from_file('data.txt')
