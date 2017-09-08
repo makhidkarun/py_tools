@@ -1,6 +1,6 @@
 import random
 
-from base_tools import *
+from .base_tools import *
 
 def roll_upp():
   return [roll_2d6() for _ in range(6)]
@@ -20,11 +20,20 @@ def roll_terms():
 
 def set_name(gender):
   if gender == 'F':
-    f_names = ['Vega', 'Gabbie', 'Giselle', 'Lanny', 'Ilana', 'Alba', 'Irene']
+    try:
+      f_names = list_from_file('data/female_first_names.txt')
+    except:
+      f_names = ['Frieda']
   else:
-    f_names = ['Marco', 'Ian', 'Akil', 'Alan', 'Wilbur']
+    try:
+      f_names = list_from_file('data/male_first_names.txt')
+    except:
+      f_names = ['George']
   f_name = random.choice(f_names)
-  l_names = ['Domici', 'Stranger', 'Smith', 'Jones', 'Patterson']
+  try:
+    l_names = list_from_file('data/last_names.txt')
+  except:
+    l_names = ['Jones']
   l_name = random.choice(l_names)
   return f_name + " " + l_name
 
