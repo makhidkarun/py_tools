@@ -1,6 +1,7 @@
 import random
-
-from .base_tools import *
+import sys
+sys.path.append("lib")
+from base_tools import *
 
 def roll_upp():
   return [roll_2d6() for _ in range(6)]
@@ -19,22 +20,50 @@ def roll_terms():
   return roll_1d6()
 
 def set_name(gender):
+  #except:
+  #  f_names = list_from_file('data/female_first_names.txt')
+  #  f_name = random.choice(f_names)
+  import sqlite3
+  f_name = ""
+  l_name = ""
   if gender == 'F':
     try:
-      f_names = list_from_file('data/female_first_names.txt')
-    except:
-      f_names = ['Frieda']
+      conn    = sqlite3.connect('data/names.db')
+      c       = conn.cursor()
+      c.execute("SELECT * from humaniti_female_first ORDER BY RANDOM() LIMIT 1")
+      f_name  = c.fetchone()[0]
+      conn.close()
+    except Exception:
+      try:
+        f_names = list_from_file('data/female_first_names.txt')
+        f_name = random.choice(f_names)
+      except IOError:
+        f_name = "Glenda"
   else:
     try:
-      f_names = list_from_file('data/male_first_names.txt')
-    except:
-      f_names = ['George']
-  f_name = random.choice(f_names)
+      conn    = sqlite3.connect('data/names.db')
+      c       = conn.cursor()
+      c.execute("SELECT * from humaniti_male_first ORDER BY RANDOM() LIMIT 1")
+      f_name  = c.fetchone()[0]
+      conn.close()
+    except Exception:
+      try:
+        f_names = list_from_file('data/male_first_names.txt')
+        f_name = random.choice(f_names)
+      except IOError:
+        f_name = 'George'
   try:
-    l_names = list_from_file('data/last_names.txt')
-  except:
-    l_names = ['Jones']
-  l_name = random.choice(l_names)
+    conn    = sqlite3.connect('data/names.db')
+    c       = conn.cursor()
+    c.execute("SELECT * from humaniti_last ORDER BY RANDOM() LIMIT 1")
+    l_name  = c.fetchone()[0]
+    conn.close()
+  except Exception:
+    try:
+      l_names = list_from_file('data/last_names.txt')
+      l_name = random.choice(l_names)
+    except IOError:
+      l_name = 'Jones'
   return f_name + " " + l_name
 
 def show_upp(upp):
