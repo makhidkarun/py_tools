@@ -92,4 +92,8 @@ def add_skill(char, skill):
     char.skills[skill] += 1
   else:
     char.skills[skill] = 1
- 
+
+def is_educated(upp):
+  if upp[4] >= 8:
+    return True
+  return False 

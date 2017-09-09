@@ -17,5 +17,15 @@ class TestCharacterTools(unittest.TestCase):
     string_upp = show_upp(self.upp)
     self.assertTrue(all(str(c) in string.hexdigits for c in show_upp(self.upp)))
 
+  def test_is_uneducated(self):
+    upp =   [ 7,7,7,7,7,7]
+    self.assertFalse(is_educated(upp))
+   
+  def test_is_educated(self):
+    upp =   [ 7,7,7,7,8,7]
+    self.assertTrue(is_educated(upp))
+   
+
+ 
 if __name__ == '__main__':
   unittest.main()
