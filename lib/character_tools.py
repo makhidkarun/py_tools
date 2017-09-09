@@ -12,17 +12,16 @@ def set_gender():
 def set_age(terms):
   return 18 + (terms * 4) + int((roll_1d6() / 2))
 
-def set_career():
-  return random.choice(['Army', 'Navy', 'Marines', 'Scouts',
+def add_career(terms=1):
+  career  = random.choice(['Army', 'Navy', 'Marines', 'Scouts',
     'Agent', 'Merchant', 'Citizen', 'Rogue'])
+  careers = { career : terms }
+  return careers
 
 def roll_terms():
   return roll_1d6()
 
 def set_name(gender):
-  #except:
-  #  f_names = list_from_file('data/female_first_names.txt')
-  #  f_name = random.choice(f_names)
   import sqlite3
   f_name = ""
   l_name = ""
