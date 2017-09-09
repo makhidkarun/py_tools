@@ -1,3 +1,5 @@
+""" chargen.py """
+
 import getopt
 
 import sys
@@ -34,3 +36,17 @@ lim_char = Character(limited_data)
 lim_char.run_career(limited_data)
 lim_char.display()
 
+"""
+### Sample output with the above.
+
+Bart Courtois   776757 [M] Age: 33 
+Army (3 terms) 
+Admin-3 Blade-1 GunCbt-2 
+
+Ian Domici      789987 [M] Age: 24 
+Firster (3 terms) Merchant (3 terms) Noble (2 terms) 
+Broker-2 GunCbt-1 Streetwise-2 
+
+Rosa            78A978 [F] Age: 18 
+Navy (0 terms) 
+"""

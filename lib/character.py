@@ -1,4 +1,9 @@
-""" character.py, a shell class """
+""" 
+  Character, a shell class 
+  It is used for generating totally new characters,
+  updating partially completed characters,
+  or as a standard interface for existing characters.
+"""
 
 import random
 import sys
