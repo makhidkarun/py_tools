@@ -5,18 +5,21 @@ import getopt
 import sys
 sys.path.append("lib")
 from character import Character
+from character_tools import *
 
-my_data = {}
+terms   = roll_terms()
+career  = random_career()
+
 if len(sys.argv) > 1:
   opts, args = getopt.getopt(sys.argv[1:], 'c:t:')
   for o, a in opts:
     if o == '-c':
-      my_data['careers'] = a
+      career = a
     elif o == '-t':
-      data['terms'] = int(a)
+      terms = int(a)
       
 char = Character()
-char.run_career(my_data)
+char.run_career(career, terms)
 char.display()
 
 # Testing with an existing character.
@@ -33,7 +36,8 @@ new_char.display()
 
 limited_data = { 'gender' : 'F', 'name' : 'Rosa', 'age' : 18}
 lim_char = Character(limited_data)
-lim_char.run_career(limited_data)
+lim_char.fill_out_char(limited_data)
+lim_char.run_career(career='Firster', terms=1)
 lim_char.display()
 
 """

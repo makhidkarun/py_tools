@@ -8,7 +8,8 @@ import character
 class TestCharacter(unittest.TestCase):
   def setUp(self):
     self.char = character.Character()
-    self.char.generate()
+    self.char.generate_basic()
+    self.char.run_career('Navy')
 
   def test_terms(self):
     self.assertTrue( 1 <= self.char.terms <= 6)

@@ -24,11 +24,10 @@ def create_crewman(role):
   else:
     skill = "Computer"
 
-  crew_data = {'careers': get_career()}
   crew = Character()
-  crew.generate(crew_data)
+  crew.generate_basic()
+  crew.run_career(get_career())
   character_tools.add_skill(crew, skill)
 
   print(role + " " + crew.display_string())
   print("")
-

@@ -25,22 +25,29 @@ class Character(object):
     self.upp      = my_data.get('upp', roll_upp())
     self.name     = my_data.get('name', set_name(self.gender))
     self.age      = my_data.get('age', 18)
+    self.careers  = my_data.get('careers', {})
+    self.skills   = my_data.get('skills', {})
  
   def generate_basic(self):
     self.gender   = set_gender()
     self.name     = set_name(self.gender)
     self.upp      = roll_upp()
 
-  def run_career(self, my_data):
-    if 'age' in my_data:
-      self.terms  = int((my_data['age'] - 18) / 4)
+  def run_career(self, career, terms = 0):
+    """ Run a single career """
+    self.career   = career
+    if terms == 0:
+      self.terms    = roll_terms()
     else:
-      self.terms    = my_data.get('terms', roll_terms())
+      self.terms    = terms
+    self.careers  = {self.career : self.terms}
+    if hasattr(self, 'age'):
+      pass
+    else:
       self.age      = set_age(self.terms)
-    self.careers  = my_data.get('careers', add_career(self.terms))
-    self.skills   = set_skills(self.careers.keys(), self.terms)
+    self.skills   = set_skills(self.career, self.terms)
 
-  def display(self):
+  def display(self, careers = {}):
     print("%-15s %s [%s] Age: %d " % 
       (self.name, show_upp(self.upp), self.gender, self.age))
     career_line = self.string_careers(self.careers)
@@ -49,7 +56,7 @@ class Character(object):
     print(skill_line)
     print("")
   
-  def string_careers(self, careers):
+  def string_careers(self, careers = {}):
     career_keys   = list(careers.keys())
     career_keys.sort()
     career_line   = ''
@@ -57,7 +64,7 @@ class Character(object):
       career_line = career_line + c + " (" + str(self.careers[c]) + " terms) "
     return career_line
  
-  def string_skills(self, skills):
+  def string_skills(self, skills = {}):
     skill_keys = list(skills.keys())
     skill_keys.sort()
     skill_line = ''

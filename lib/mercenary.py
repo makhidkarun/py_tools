@@ -29,9 +29,10 @@ def create_leader(rank):
   else:
     terms = 1
 
-  ldr_data = {'terms': terms, 'career': get_career()}
+  #ldr_data = {'terms': terms, 'career': get_career()}
   ldr = Character()
-  ldr.generate(ldr_data)
+  ldr.generate_basic()
+  ldr.run_career(get_career(), terms)
   print(rank + " " + ldr.display_string())
 
 def create_platoon():
@@ -64,7 +65,8 @@ def create_fireteam():
   for s in range(3):
     pvt_data = {'terms':1, 'career': get_career()}
     pvt = Character()
-    pvt.generate(pvt_data)
+    pvt.generate_basic()
+    pvt.run_career(get_career(), 1)
     print("PVT " + pvt.display_string())
     print("")
      

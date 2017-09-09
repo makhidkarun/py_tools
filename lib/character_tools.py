@@ -18,6 +18,11 @@ def add_career(terms=1):
   careers = { career : terms }
   return careers
 
+def random_career():
+  career  = random.choice(['Army', 'Navy', 'Marines', 'Scouts',
+    'Agent', 'Merchant', 'Citizen', 'Rogue'])
+  return career
+
 def roll_terms():
   return roll_1d6()
 
