@@ -13,13 +13,23 @@ from character_tools import *
 class Character(object):
 
   def __init__(self, my_data = None):
+    self.create_framework()
+
     if my_data == None:
       self.generate_basic()
     else:
       for k,v in my_data.items():
         setattr(self, k, v)
       self.fill_out_char(my_data)
-   
+  
+  def create_framework(self):
+    self.name     = ""
+    self.upp      = []
+    self.age      = 0
+    self.gender   = ""
+    self.careers  = {}
+    self.skills   = {}
+ 
   def fill_out_char(self, my_data):
     self.gender   = my_data.get('gender', set_gender())
     self.upp      = my_data.get('upp', roll_upp())
@@ -67,20 +77,18 @@ class Character(object):
   
   def string_careers(self):
     career_line   = ''
-    if hasattr(self, 'careers'):
-      career_keys   = list(self.careers.keys())
-      career_keys.sort()
-      for c in career_keys:
-        career_line += c + " (" + str(self.careers[c]) + " terms) "
+    career_keys   = list(self.careers.keys())
+    career_keys.sort()
+    for c in career_keys:
+      career_line += c + " (" + str(self.careers[c]) + " terms) "
     return career_line
  
   def string_skills(self):
     skill_line = ''
-    if hasattr(self, 'skills'):
-      skill_keys = list(self.skills.keys())
-      skill_keys.sort()
-      for s in skill_keys:
-        skill_line += s + '-' + str(self.skills[s]) + " "
+    skill_keys = list(self.skills.keys())
+    skill_keys.sort()
+    for s in skill_keys:
+      skill_line += s + '-' + str(self.skills[s]) + " "
     return skill_line
 
   def display_string(self):
