@@ -46,6 +46,7 @@ class Character(object):
 
   def run_career(self, career, terms = 0):
     """ Run a single career """
+    """
     self.career   = career
     if terms == 0:
       self.terms    = roll_terms()
@@ -55,6 +56,9 @@ class Character(object):
     if self.age == -1:
       self.age      = set_age(self.terms)
     self.skills   = set_skills(self.career, self.terms)
+    """
+    import Merchant
+    Merchant.Merchant.set_skills(self, terms)
 
   def __str__(self):
     name    = self.name
