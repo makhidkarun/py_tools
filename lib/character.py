@@ -47,35 +47,46 @@ class Character(object):
       self.age      = set_age(self.terms)
     self.skills   = set_skills(self.career, self.terms)
 
-  def display(self, careers = {}):
+  def __str__(self):
+    name    = self.name
+    gender  = self.gender
+    upp     = show_upp(self.upp)
+    career_string = self.string_careers()
+    skill_string  = self.string_skills()
+    return ("%-20s %-10s [%s]\n  %s \n  %s" % 
+      (name, upp, gender, career_string, skill_string))
+
+  def display(self):
     print("%-15s %s [%s] Age: %d " % 
       (self.name, show_upp(self.upp), self.gender, self.age))
-    career_line = self.string_careers(self.careers)
+    career_line = self.string_careers()
     print(career_line)
-    skill_line = self.string_skills(self.skills)
+    skill_line = self.string_skills()
     print(skill_line)
     print("")
   
-  def string_careers(self, careers = {}):
-    career_keys   = list(careers.keys())
-    career_keys.sort()
+  def string_careers(self):
     career_line   = ''
-    for c in career_keys:
-      career_line = career_line + c + " (" + str(self.careers[c]) + " terms) "
+    if hasattr(self, 'careers'):
+      career_keys   = list(self.careers.keys())
+      career_keys.sort()
+      for c in career_keys:
+        career_line += c + " (" + str(self.careers[c]) + " terms) "
     return career_line
  
-  def string_skills(self, skills = {}):
-    skill_keys = list(skills.keys())
-    skill_keys.sort()
+  def string_skills(self):
     skill_line = ''
-    for s in skill_keys:
-      skill_line = skill_line + s + '-' + str(self.skills[s]) + " "
+    if hasattr(self, 'skills'):
+      skill_keys = list(self.skills.keys())
+      skill_keys.sort()
+      for s in skill_keys:
+        skill_line += s + '-' + str(self.skills[s]) + " "
     return skill_line
 
   def display_string(self):
     c_string = self.name + (" " * (20 - len(self.name)))
-    c_string = c_string + show_upp(self.upp) + " "
-    c_string = c_string + '[' + self.gender +']' + " Age: " + str(self.age)
-    c_string = c_string + "\n  " + self.string_careers(self.careers)
-    c_string = c_string + "\n  " + self.string_skills(self.skills)
+    c_string += show_upp(self.upp) + " "
+    c_string += '[' + self.gender +']' + " Age: " + str(self.age)
+    c_string += "\n  " + self.string_careers()
+    c_string += "\n  " + self.string_skills()
     return c_string

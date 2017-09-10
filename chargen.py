@@ -1,5 +1,6 @@
 """ chargen.py """
 
+from __future__ import print_function
 import getopt
 
 import sys
@@ -32,14 +33,15 @@ new_data = { 'upp' : [7,8,9,9,8,7],
   }
 
 new_char = Character(new_data)
-new_char.display()
+#new_char.display()
+rank = "Captain"
+print(rank, new_char)
 
 limited_data = { 'gender' : 'F', 'name' : 'Rosa', 'age' : 18}
 lim_char = Character(limited_data)
 lim_char.fill_out_char(limited_data)
 lim_char.run_career(career='Firster', terms=1)
-lim_char.display()
-
+print(lim_char)
 """
 ### Sample output with the above.
 
