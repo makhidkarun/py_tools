@@ -23,7 +23,7 @@ if len(sys.argv) > 1:
       
 char = Character()
 char.run_career(career, terms)
-char.display()
+print(char)
 
 # Testing with an existing character.
 new_data = { 'upp' : [7,8,9,9,8,7],
@@ -35,7 +35,6 @@ new_data = { 'upp' : [7,8,9,9,8,7],
   }
 
 new_char = Character(new_data)
-#new_char.display()
 rank = "Captain"
 print(rank, new_char)
 

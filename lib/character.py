@@ -58,7 +58,8 @@ class Character(object):
     self.skills   = set_skills(self.career, self.terms)
     """
     import Merchant
-    Merchant.Merchant.set_skills(self, terms)
+    m = Merchant.Merchant(self, terms)
+    #Merchant.Merchant.set_skills(self, terms)
 
   def __str__(self):
     name    = self.name
