@@ -1,13 +1,3 @@
-""" 
-  mercenary.ph
-  Generates small ground forces units.
-  Current options are 
-    fireteam  
-    squad
-    platoon
-"""
-
-from __future__ import print_function
 import random
 import sys
 sys.path.append(".")
@@ -39,10 +29,11 @@ def create_leader(rank):
   else:
     terms = 1
 
+  #ldr_data = {'terms': terms, 'career': get_career()}
   ldr = Character()
   ldr.generate_basic()
   ldr.run_career(get_career(), terms)
-  print(rank, ldr)
+  print(rank + " " + ldr.display_string())
 
 def create_platoon():
     print("Platoon Commander:  ")
@@ -76,6 +67,7 @@ def create_fireteam():
     pvt = Character()
     pvt.generate_basic()
     pvt.run_career(get_career(), 1)
-    rank = "PVT"
-    print(rank , pvt)
+    print("PVT " + pvt.display_string())
     print("")
+     
+  

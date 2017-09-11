@@ -1,8 +1,6 @@
 """ chargen.py """
 
 from __future__ import print_function
-""" Required to use print(rank, new_char) """
-
 import getopt
 
 import sys

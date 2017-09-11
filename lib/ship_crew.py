@@ -1,10 +1,3 @@
-"""
-  ship_crew.py
-  Generates a minimal ship crew based on tonnage.
-  python crew -s 400
-"""
-
-from __future__ import print_function
 import random
 import sys
 sys.path.append(".")
@@ -36,5 +29,5 @@ def create_crewman(role):
   crew.run_career(get_career())
   character_tools.add_skill(crew, skill)
 
-  print(role, crew)
+  print(role + " " + crew.display_string())
   print("")
