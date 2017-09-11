@@ -31,7 +31,7 @@ class Character(object):
     self.careers  = {}
     self.skills   = {}
  
-  def fill_out_char(self, my_data):
+  def fill_out_char(self, my_data = {}):
     self.gender   = my_data.get('gender', set_gender())
     self.upp      = my_data.get('upp', roll_upp())
     self.name     = my_data.get('name', set_name(self.gender))
@@ -46,20 +46,8 @@ class Character(object):
 
   def run_career(self, career, terms = 0):
     """ Run a single career """
-    """
-    self.career   = career
-    if terms == 0:
-      self.terms    = roll_terms()
-    else:
-      self.terms    = terms
-    self.careers  = {self.career : self.terms}
-    if self.age == -1:
-      self.age      = set_age(self.terms)
-    self.skills   = set_skills(self.career, self.terms)
-    """
     import Merchant
     m = Merchant.Merchant(self, terms)
-    #Merchant.Merchant.set_skills(self, terms)
 
   def __str__(self):
     name    = self.name
