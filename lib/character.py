@@ -1,8 +1,9 @@
 """ 
-  Character, a shell class 
-  It is used for generating totally new characters,
-  updating partially completed characters,
-  or as a standard interface for existing characters.
+  character.py
+  Character is a shell class 
+    used for generating totally new characters,
+    updating partially completed characters,
+    or as a standard interface for existing characters.
 """
 
 import random
@@ -25,7 +26,7 @@ class Character(object):
   def create_framework(self):
     self.name     = ""
     self.upp      = []
-    self.age      = 0
+    self.age      = -1 
     self.gender   = ""
     self.careers  = {}
     self.skills   = {}
@@ -45,40 +46,26 @@ class Character(object):
 
   def run_career(self, career, terms = 0):
     """ Run a single career """
-    """
     self.career   = career
     if terms == 0:
       self.terms    = roll_terms()
     else:
       self.terms    = terms
     self.careers  = {self.career : self.terms}
-    if hasattr(self, 'age'):
-      pass
-    else:
+    if self.age == -1:
       self.age      = set_age(self.terms)
     self.skills   = set_skills(self.career, self.terms)
-    """
-    import Merchant
-    Merchant.Merchant.set_skills(self, terms)
 
   def __str__(self):
     name    = self.name
     gender  = self.gender
     upp     = show_upp(self.upp)
+    age     = self.age
     career_string = self.string_careers()
     skill_string  = self.string_skills()
-    return ("%-20s %-10s [%s]\n  %s \n  %s" % 
-      (name, upp, gender, career_string, skill_string))
+    return ("%-20s %-10s [%s] Age: %d\n  %s \n  %s" % 
+      (name, upp, gender, age, career_string, skill_string))
 
-  def display(self):
-    print("%-15s %s [%s] Age: %d " % 
-      (self.name, show_upp(self.upp), self.gender, self.age))
-    career_line = self.string_careers()
-    print(career_line)
-    skill_line = self.string_skills()
-    print(skill_line)
-    print("")
-  
   def string_careers(self):
     career_line   = ''
     career_keys   = list(self.careers.keys())
@@ -94,11 +81,3 @@ class Character(object):
     for s in skill_keys:
       skill_line += s + '-' + str(self.skills[s]) + " "
     return skill_line
-
-  def display_string(self):
-    c_string = self.name + (" " * (20 - len(self.name)))
-    c_string += show_upp(self.upp) + " "
-    c_string += '[' + self.gender +']' + " Age: " + str(self.age)
-    c_string += "\n  " + self.string_careers()
-    c_string += "\n  " + self.string_skills()
-    return c_string
