@@ -1,0 +1,8 @@
+
+
+class Character
+  Character is the main class. An instance of character has data that coversattributes like name, statistics, skills, careers, etc.
+  Various use cases extend the number of attributes.
+  Methods in the class check bounds and organize generation.
+
+
