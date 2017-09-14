@@ -7,4 +7,4 @@ python:
  - "nightly"
 
 script:
-  py.test
+  pytest
