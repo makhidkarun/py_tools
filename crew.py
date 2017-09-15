@@ -9,23 +9,16 @@ sys.path.append("lib")
 from character import Character
 
 parser = argparse.ArgumentParser(description='Generate a ship or military crew')
-parser.add_argument('-m', '--military', help='military unit of what size?',
-  default='fireteam')
+group = parser.add_mutually_exclusive_group(required=True)
+group.add_argument('-m', '--military', help='military unit of what size?')
+group.add_argument('-s', '--ship', type=int, help='ship size?')
 
 args = parser.parse_args()
-if 'military' in list(args.keys()):
-  print(args.military)
-
-sys.exit()
-
-if len(sys.argv) > 1:
-  opts, args = getopt.getopt(sys.argv[1:], 'm:s:')
-  for o, a in opts:
-    if o in ('-m', '--mercenary'):
-      from mercenary import create_unit
-      size = a
-      create_unit(size)
-    elif o == '-s':
-      from ship_crew import create_crew
-      create_crew(int(a))
-        
+if args.military is not None:
+  from mercenary import create_unit
+  create_unit(args.military)
+elif args.ship is not None:
+  from ship_crew import create_crew
+  create_crew(args.ship)
+else:
+  print("Sorry. No capito.")
