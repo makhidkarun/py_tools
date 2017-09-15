@@ -8,9 +8,9 @@ Works for Python 2.6.6 and 3.6.2.
 
 The terms and career are optional.
 
-python Character.py [ -t <terms> -c <career> ]
+python character.py [ -t <terms> -c <career> ]
 
-    python Character.py -t 2 -c Merchant
+    python chargen.py -t 2 -c Merchant
     Alba Patterson  79A76C [F] Age: 28 
     Merchant (2 terms)
     Navigation-1 Pilot-3
@@ -21,7 +21,7 @@ Works for Python 2.6.6 and 3.6.2.
   
 Size options are (without quotes) "fireteam", "squad", "platoon".
   
-    python Crew.py -m fireteam
+    python crew.py -m fireteam
   
     CPL Ilana Domici        655666 [F] Age: 27
     Army (2 terms)
@@ -41,7 +41,7 @@ Size options are (without quotes) "fireteam", "squad", "platoon".
 
 # Creating a ship crew:
 
-    python Crew.py -s 600
+    python crew.py -s 600
 
     Pilot Ilana Patterson     55C6AB [F] Age: 39
     Navy (5 terms)
