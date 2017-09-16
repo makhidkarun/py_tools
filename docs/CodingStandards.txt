@@ -1,0 +1,29 @@
+Coding Standards
+==============
+
+Style
+-----
+
+I've developed my own coding standards that work for me.  However, 
+not everyone uses the same standards. At this point I'm going to 
+go re-read PEP-8 (https://www.python.org/dev/peps/pep-0008/) and start
+bringing my code in line with that. 
+
+Thoughts?
+
+
+Python 2 vs Python 3
+--------------------
+
+As much as possible I code to work on both Python 2 and 3. A lot of 
+my effort is to be able to write system tools for RHEL boxes. 
+
+
+stdlib
+------
+
+Mostly want to stay with the python standard library unless there is 
+a good reason not to. Or is the expected usage that people are happy to
+install more modules.
+
+ 
