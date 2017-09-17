@@ -57,7 +57,10 @@ class Character(object):
     self.skills   = set_skills(self.career, self.terms)
 
   def __str__(self):
-    name    = self.name
+    if sys.version_info[0] < 3:
+      name    = self.name.encode("utf-8")
+    else:
+      name    = self.name
     gender  = self.gender
     upp     = show_upp(self.upp)
     age     = self.age
