@@ -1,5 +1,5 @@
 """
-  ship_tools.py
+  world_tools.py
   Functions useful in world generation.
 """
 
