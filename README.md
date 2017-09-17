@@ -58,3 +58,21 @@ Size options are (without quotes) "fireteam", "squad", "platoon".
     Eng Marco Stranger      4A6246 [M] Age: 31
     Scouts (3 terms)
     Computer-3 Engineering-2 Navigation-1 Pilot-1  
+	
+
+# Creating a world name:
+
+Creates one or more world names
+
+	python worlds.py
+	
+	Brandon II
+	
+	python world.py -n 5
+	
+	New Ries
+	Bystritskaya
+	Orpheus Alpha
+	Arequipa
+	McCoy
+	
