@@ -97,6 +97,16 @@ def add_skill(char, skill):
   else:
     char.skills[skill] = 1
 
+def modify_upp(upp, mod):
+  stats     = ['Str', 'Dex', 'End', 'Int', 'Edu', 'Soc']
+  mod_array = mod.split()
+  mod_value = int(mod_array[0])
+  mod_stat  = mod_array[1]
+  if mod_stat in stats:
+    stat_index  = stats.index(mod_stat)
+    upp[stat_index] += mod_value
+  return upp 
+  
 def is_educated(upp):
   if upp[4] >= 8:
     return True
