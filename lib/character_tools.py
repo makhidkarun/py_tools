@@ -82,7 +82,7 @@ def set_skills(career, terms):
   else:
     skill_list = ['Blade', 'GunCbt', 'Admin', 'Streetwise']
 
-  for add_skill in range(terms * 2): 
+  for added_skill in range(terms * 2): 
     new_skill = random.choice(skill_list)
     if new_skill in skills:
       skills[new_skill] += 1
