@@ -16,3 +16,33 @@ class Career
 class Presenter
   Takes a Character instance and outputs it according to the format.
   Subclassed (?) for sql, json, html, etc.
+
+Text Decription of Usage:
+
+Use Case: New Character
+  python chargen.py [ -t <terms>, -c <career>, -o <output_format> ]
+    if -t <terms> given, use that. Else random number of terms.
+    if -c <career> given, use that. Else random career. 
+    Create a basic character.
+    Current Career:
+      Pass terms and career to character.run_career()
+    Planned Career:
+      Pass character to a subclass of Career.
+    Output:
+      Presenter
+      Default: Print character via __str__().
+      
+
+Use Case: Update Character 
+  Needs a way to intake character data.
+  character.fill_out_character()
+  Run Career options.
+  
+ 
+Use Case: Transfer Character data from one format to another
+  For example, json to sql.
+
+
+Use Case: Generate numbers of characters based on unit type/size.
+  python crew.py [ -s <ship_size> | -m <unit_size> ]
+  Need to add output formats.
