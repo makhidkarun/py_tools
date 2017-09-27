@@ -28,7 +28,7 @@ class TestBaseTools(unittest.TestCase):
     self.assertTrue(item in data_options)
   
   def test_list_from_file(self):
-    data_file = 'tests/data.txt'
+    data_file = 'tests/name_data.txt'
     items = base_tools.list_from_file(data_file)
     self.assertTrue(len(items) == 8)
 
