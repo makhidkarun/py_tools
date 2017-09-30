@@ -8,7 +8,7 @@ Electronic
 Engineering
 Engineering
 Engineering
-GunCgt
+GunCbt
 Gunnery
 Gunnery
 JoT
@@ -18,7 +18,7 @@ Navigation
 Navigation
 Pilot
 Pilot
-ShipBoat
+ShipsBoat
 Steward
 Streetwise
 VaccSuit

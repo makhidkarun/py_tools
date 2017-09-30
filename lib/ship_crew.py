@@ -15,21 +15,28 @@ def get_career():
   return random.choice(['Scouts', 'Navy', 'Merchants'])
 
 def create_crew(size):
-  for c in range(int(size/400)):
+  create_crewman("Pilot")
+  create_crewman("Navg")
+  create_crewman("Eng")
+  for c in range(1, int(size/400)):
     create_crewman("Pilot")
     create_crewman("Navg")
-  for c in range(int(size/300)):
+  for c in range(1, int(size/300)):
     create_crewman("Eng")
+  for c in range(1, int(size/100) + 1):
+    create_crewman("Gunner")
  
 def create_crewman(role):
   if role == "Eng": 
     skill = "Engineering"
   elif role == "Navg":
-    skill = "Navgigation" 
+    skill = "Navigation" 
   elif role == "Helm":
     skill = "Pilot"
+  elif role == "Gunner":
+    skill = "Gunnery"
   else:
-    skill = "Computer"
+    skill = "Leader"
 
   crew = Character()
   crew.generate_basic()
