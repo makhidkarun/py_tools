@@ -76,9 +76,15 @@ def show_upp(upp):
 def set_skills(career, terms):
   skills = {}
   if career in ['Army', 'Marines']:
-    skill_list = ['GunCbt', 'VaccSuit', 'Leadership', 'Vehicle']
+    try:
+      skill_list = list_from_file('data/mercenary_skills.txt')
+    except IOError:
+      skill_list = ['GunCbt', 'VaccSuit', 'Leadership', 'Vehicle']
   elif career in ['Merchants', 'Navy', 'Scouts']:
-    skill_list = ['Navigation', 'Pilot', 'Engineering', 'Computer']
+    try:
+      skill_list = list_from_file('data/spacer_skills.txt')
+    except IOError:
+      skill_list = ['Navigation', 'Pilot', 'Engineering', 'Computer']
   else:
     skill_list = ['Blade', 'GunCbt', 'Admin', 'Streetwise']
 
