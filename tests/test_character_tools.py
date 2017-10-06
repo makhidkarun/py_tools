@@ -12,10 +12,20 @@ class TestCharacterTools(unittest.TestCase):
   def test_upp_length(self):
     self.assertTrue(len(self.upp), 6)
 
-  def test_show_upp(self):
+  def test_show_upp_list(self):
     import string
-    string_upp = show_upp(self.upp)
+    upp = [ 3, 4, 5, 10, 11, 12]
+    string_upp = show_upp(upp)
     self.assertTrue(all(str(c) in string.hexdigits for c in show_upp(self.upp)))
+
+  def test_show_upp_str(self):
+    upp = "345ABC"
+    self.assertTrue(upp == show_upp(upp))
+
+  def test_show_upp_dict(self):
+    upp = { "Str" : 3, "Dex" : 4, "End" : 5, "Int" : 10, "Edu" : 11, "Soc" : 12}
+    new_upp = show_upp(upp)
+    self.assertTrue(new_upp == "345ABC")
 
   def test_is_uneducated(self):
     upp =   [7,7,7,7,7,7]

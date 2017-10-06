@@ -68,23 +68,30 @@ def set_name(gender):
       l_name = random.choice(l_names)
     except IOError:
       l_name = 'Jones'
-  return f_name + " " + l_name
+  name = ' '.join([f_name, l_name]).encode("utf-8")
+  return name
 
 def show_upp(upp):
-  return ''.join('%X' % u for u in upp)
+  if isinstance(upp, dict):
+    return_value = ""
+    return_value += ''.join("%X" % upp["Str"] )
+    return_value += ''.join("%X" % upp["Dex"] )
+    return_value += ''.join("%X" % upp["End"] )
+    return_value += ''.join("%X" % upp["Int"] )
+    return_value += ''.join("%X" % upp["Edu"] )
+    return_value += ''.join("%X" % upp["Soc"] )
+  elif isinstance(upp, list):
+    return_value = ''.join('%X' % u for u in upp)
+  else:
+    return_value = upp.strip()
+  return return_value
 
 def set_skills(career, terms):
   skills = {}
   if career in ['Army', 'Marines']:
-    try:
-      skill_list = list_from_file('data/mercenary_skills.txt')
-    except IOError:
-      skill_list = ['GunCbt', 'VaccSuit', 'Leadership', 'Vehicle']
+    skill_list = ['GunCbt', 'VaccSuit', 'Leadership', 'Vehicle']
   elif career in ['Merchants', 'Navy', 'Scouts']:
-    try:
-      skill_list = list_from_file('data/spacer_skills.txt')
-    except IOError:
-      skill_list = ['Navigation', 'Pilot', 'Engineering', 'Computer']
+    skill_list = ['Navigation', 'Pilot', 'Engineering', 'Computer']
   else:
     skill_list = ['Blade', 'GunCbt', 'Admin', 'Streetwise']
 

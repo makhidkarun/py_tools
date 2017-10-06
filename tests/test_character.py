@@ -1,4 +1,5 @@
 """ test_character.py """
+# -*- coding: utf-8 -*-
 
 import unittest
 import sys
@@ -17,5 +18,8 @@ class TestCharacter(unittest.TestCase):
   def test_gender(self):
     self.assertTrue(self.char.gender in ['M', 'F'])
 
+  def test_name_utf_8(self):
+    self.char.name = "Veola Löfgren"
+    
 if __name__ == '__main__':
   unittest.main()
