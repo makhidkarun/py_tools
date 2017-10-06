@@ -17,4 +17,4 @@ args = parser.parse_args()
 
 char = Character()
 char.run_career(args.career, args.terms)
-print(char)
+char.display()
