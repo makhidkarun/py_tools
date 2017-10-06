@@ -42,7 +42,8 @@ def create_leader(rank):
   ldr = Character()
   ldr.generate_basic()
   ldr.run_career(get_career(), terms)
-  print(rank, ldr)
+  print(rank, end=" ")
+  ldr.display()
 
 def create_platoon():
     print("Platoon Commander:  ")
@@ -77,5 +78,6 @@ def create_fireteam():
     pvt.generate_basic()
     pvt.run_career(get_career(), 1)
     rank = "PVT"
-    print(rank , pvt)
+    print(rank, end=" ")
+    pvt.display()
     print("")
