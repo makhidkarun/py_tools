@@ -5,6 +5,7 @@
     updating partially completed characters,
     or as a standard interface for existing characters.
 """
+# -*- coding: utf-8 -*-
 
 import random
 import sys
@@ -24,7 +25,7 @@ class Character(object):
       self.fill_out_char(my_data)
   
   def create_framework(self):
-    self.name     = ""
+    self.name     = "".encode("utf-8")
     self.upp      = []
     self.age      = -1 
     self.gender   = ""
@@ -56,9 +57,9 @@ class Character(object):
       self.age      = set_age(self.terms)
     self.skills   = set_skills(self.career, self.terms)
 
-  def __str__(self):
+  def display(self):
     if sys.version_info[0] < 3:
-      name    = self.name.encode("utf-8")
+      name    = self.name.decode("utf-8")
     else:
       name    = self.name
     gender  = self.gender
@@ -66,7 +67,7 @@ class Character(object):
     age     = self.age
     career_string = self.string_careers()
     skill_string  = self.string_skills()
-    return ("%-20s %-10s [%s] Age: %d\n  %s \n  %s" % 
+    print("%-20s %-10s [%s] Age: %d\n  %s \n  %s" % 
       (name, upp, gender, age, career_string, skill_string))
 
   def string_careers(self):
