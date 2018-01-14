@@ -46,6 +46,28 @@ def list_from_file(file):
       items.append(line)
   return items
 
+def multi_list_from_file(file):
+  """
+  Takes a file of one set of items per line.
+  The first item must be an Int > 0.
+  The rest of the line will be appended to the list as a string.
+  Returns that list.
+  """
+  datafile  = open(file, 'r')
+  items   = []
+  for line in datafile:
+    line  = line.strip()
+    if line.startswith('#') or len(line) < 3:
+      continue
+    else:
+      line_array  = line.split()
+      count       = int(line_array[0])
+      rest        = ' '.join(line_array[1:])
+      for _ in range(count):
+        items.append(rest)
+  return items
+
+
 def random_from_list(l):
   """
   Returns a random item from the list.

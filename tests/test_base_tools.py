@@ -32,6 +32,11 @@ class TestBaseTools(unittest.TestCase):
     items = base_tools.list_from_file(data_file)
     self.assertTrue(len(items) == 8)
 
+  def test_multi_list_from_file(self):
+    data_file = 'tests/spacer_skills2.txt'
+    items = base_tools.multi_list_from_file(data_file)
+    self.assertTrue(len(items) == 38)
+
   def test_modify_list(self):
     upp       = [ 7, 8, 9, 10, 11, 12]
     index     = 3
