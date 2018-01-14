@@ -40,7 +40,7 @@ def list_from_file(file):
     items = []
     for line in datafile:
       line  = line.strip()
-      if line.startswith("#") or len(line) < 1:
+      if line.startswith("#") or not line:
         continue
       else:
         items.append(line)
