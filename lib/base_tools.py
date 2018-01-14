@@ -40,9 +40,9 @@ def list_from_file(file):
     items = []
     for line in datafile:
       line  = line.strip()
-      if line.startswith("#"):
+      if line.startswith("#") or len(line) < 1:
         continue
-      if len(line) > 0:
+      else:
         items.append(line)
   return items
 
