@@ -1,7 +1,13 @@
+# character_tools.py
+
 import random
 import sys
 sys.path.append("lib")
 from base_tools import *
+
+def upp_hash_to_string(upp):
+  # need to work on this later.
+  str = upp['str']
 
 def roll_upp():
   return [roll_2d6() for _ in range(6)]
