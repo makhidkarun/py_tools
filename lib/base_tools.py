@@ -53,18 +53,18 @@ def multi_list_from_file(file):
   The rest of the line will be appended to the list as a string.
   Returns that list.
   """
-  datafile  = open(file, 'r')
   items   = []
-  for line in datafile:
-    line  = line.strip()
-    if line.startswith('#') or len(line) < 3:
-      continue
-    else:
-      line_array  = line.split()
-      count       = int(line_array[0])
-      rest        = ' '.join(line_array[1:])
-      for _ in range(count):
-        items.append(rest)
+  with open(file, 'r') as datafile:
+    for line in datafile:
+      line  = line.strip()
+      if line.startswith('#') or len(line) < 3:
+        continue
+      else:
+        line_array  = line.split()
+        count       = int(line_array[0])
+        rest        = ' '.join(line_array[1:])
+        for _ in range(count):
+          items.append(rest)
   return items
 
 
