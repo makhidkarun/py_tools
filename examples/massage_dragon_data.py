@@ -14,6 +14,12 @@ infile = open('total_dragons.csv', 'r')
 
 names   = []
 
+soc_b_count = 0
+soc_c_count = 0
+soc_d_count = 0
+soc_e_count = 0
+soc_f_count = 0
+
 for line in infile.readlines():
   line = line.strip()
   line_array = line.split(':')
