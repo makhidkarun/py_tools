@@ -36,14 +36,14 @@ def list_from_file(file):
   Returns a list of those items.
   Removes whitespace and blank lines.
   """
-  datafile = open(file, 'r')
-  items = []
-  for line in datafile:
-    line  = line.strip()
-    if line.startswith("#"):
-      continue
-    if len(line) > 0:
-      items.append(line)
+  with open(file, 'r') as datafile:
+    items = []
+    for line in datafile:
+      line  = line.strip()
+      if line.startswith("#"):
+        continue
+      if len(line) > 0:
+        items.append(line)
   return items
 
 def multi_list_from_file(file):
